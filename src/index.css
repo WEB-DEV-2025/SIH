@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* KalpanaX Travel Platform Design System */
+
+@layer base {
+  :root {
+    /* Base Colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    /* Card System */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    /* Popover System */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Travel Brand Primary - Nature Green */
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 142 61% 55%;
+    --primary-dark: 142 81% 35%;
+
+    /* Secondary - Earth Tones */
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    /* Muted Colors */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Accent - Cultural Orange */
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Alert Colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders & Inputs */
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 71% 45%;
+
+    /* Radius */
+    --radius: 0.75rem;
+
+    /* Travel Theme Specific Colors */
+    --eco-green: 142 71% 45%;
+    --cultural-orange: 24 95% 53%;
+    --adventure-blue: 217 91% 60%;
+    --safety-red: 0 84% 60%;
+    --warning-amber: 43 96% 56%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--eco-green)), hsl(var(--cultural-orange)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-cta: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+
+    /* Shadows */
+    --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-card-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.3);
+
+    /* Animations */
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease;
+
+    /* Sidebar Variables */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142 71% 45%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Custom component classes for the travel platform */
+  .travel-card {
+    @apply bg-card border border-border rounded-lg shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  .travel-hero-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .sos-pulse {
+    animation: sos-pulse 2s infinite;
+  }
+
+  @keyframes sos-pulse {
+    0% { 
+      box-shadow: 0 0 0 0 hsl(var(--safety-red) / 0.7); 
+    }
+    70% { 
+      box-shadow: 0 0 0 15px hsl(var(--safety-red) / 0); 
+    }
+    100% { 
+      box-shadow: 0 0 0 0 hsl(var(--safety-red) / 0); 
+    }
+  }
+
+  .cultural-pattern {
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--cultural-orange) / 0.1) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  .timeline-line::after {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 30px;
+    height: calc(100% - 30px);
+    width: 2px;
+    background-color: hsl(var(--border));
+  }
+
+  .timeline-line:last-child::after {
+    display: none;
+  }
+}
